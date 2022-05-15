@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h3 class="text-white">Welcome,   {{user.first_name}} {{user.last_name}} to the Community Dashboard!!!</h1>
+        <div class="d-flex col-4 justify-content-around">
+            <a href="/myexercises" class="btn btn-info">My exercises</a>
+            <a href="/new" class="btn btn-info">New exercise</a>
+            <a href="/logout" class="btn btn-info">Logout</a>
+
+        </div>
+
+    </nav>
+    <div class="col-8 mx-auto">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Exercise Name</th>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Time</th>
+                    <th>Speed</th>
+                    <th>Level</th>
+                    <th>User Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exercise in exercise_list %}
+                    <tr>
+                        <td>{{exercise.exercise}}</td>    
+                        <td>{{exercise.date}}</td>
+                        <td>{{exercise.weight}}</td>
+                        <td>{{exercise.sets}}</td> 
+                        <td>{{exercise.reps}}</td> 
+                        <td>{{exercise.time}}</td> 
+                        <td>{{exercise.speed}}</td> 
+                        <td>{{exercise.level}}</td>
+                        <td>{{exercise.user_id}}</td>
+                        <td>
+                            <a href="/exercise/{{exercise.id}}">Show</a>
+                            {% if exercise.user_id == session.user_id %}
+                            <a href="/edit/exercise/{{exercise.id}}">Edit</a>
+                            <a href="/destroy/exercise/{{exercise.id}}">Delete</a>
+                            {% endif %}
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

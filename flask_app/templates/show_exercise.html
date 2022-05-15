@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{exercise.name}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+        <div class="d-flex col-4 justify-content-around">
+            <a href="/db" class="btn btn-info">Dashboard</a>
+            <a href="/logout" class="btn btn-info">Logout</a>
+
+        </div>
+
+    </nav>
+    <div class="card col-6 mx-auto my-5 bg-dark text-light">
+        <div class="card-body">
+            <h2 class="card-name text-info d-flex justify-content-center">{{exercise.exercise}}</h2>
+            <p class="card-text d-flex justify-content-center">Date:  {{exercise.date}}</p>
+            <p class="card-text d-flex justify-content-center">Weight:  {{exercise.weight}}</p>
+            <p class="card-text d-flex justify-content-center">Sets:  {{exercise.sets}}</p>
+            <p class="card-text d-flex justify-content-center">Reps:  {{exercise.reps}}</p>
+            <p class="card-text d-flex justify-content-center">Time:  {{exercise.time}}</p>
+            <p class="card-text d-flex justify-content-center">Speed:  {{exercise.speed}}</p>
+            <p class="card-text d-flex justify-content-center">Level:  {{exercise.level}}</p>
+        </div>
+    </div>
+</body>
+</html>

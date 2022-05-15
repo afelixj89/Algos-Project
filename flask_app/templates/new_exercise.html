@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New exercise</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
+        <h3 class="text-white">Dont Stop,   {{user.first_name}} {{user.last_name}}!!!</h1>
+        <h1 class="text-center"></h1>
+        <div class="d-flex col-4 justify-content-around">
+            <a href="/myexercises" class="btn btn-info">My exercises</a>
+            <a href="/db" class="btn btn-info">Dashboard</a>
+            <a href="/logout" class="btn btn-info">Logout</a>
+
+        </div>
+
+    </nav>
+    <form action="/create/exercise" method="POST" class="col-10 p-4 my-4 bg-dark text-light mx-auto">
+        <h2 class="text-info d-flex justify-content-center">Create an Exercise</h2>
+
+        {% with messages = get_flashed_messages() %}     
+            {% if messages %} 
+            <div class="alert alert-primary role=alert" >
+                    {% for message in messages %}            
+                    <p>{{message}}</p>                   
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}                     
+
+        <div class="d-flex justify-content-center col-12">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="exercise">Exercise Name:</label>
+                    <input type="text" name="exercise" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" name="date" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight(lbs):</label>
+                    <input type="text" name="weight" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sets">Sets:</label>
+                    <input type="number" name="sets" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="reps">Reps:</label>
+                    <input type="number" name="reps" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="time">Time(mins):</label>
+                    <input type="number" name="time" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="speed">Speed:</label>
+                    <input type="number" name="speed" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="level">Level:</label>
+                    <input type="number" name="level" class="form-control">
+                </div>
+                <input type="submit" value="Create" class="btn btn-info">
+                
+    </form>
+</body>
+</html>
